@@ -49,5 +49,6 @@ public class BiSectionHesap {
             throw new ArithmeticException("c=0 olamaz");
         }
         return (667.38/c)*(1-Math.exp(-0.146843*c))-40;
+        //return Math.pow(c,10)-1; // başka bir fonksiyon kökü 1 için yap
     }
 }
