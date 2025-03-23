@@ -13,4 +13,7 @@ public class Employee {
         this.hiredDate = hiredDate;
         this.birthDate = birthDate;
     }
+    public String toString(){
+        return String.format("Employee:%s %s%n Hired:%s%n Birthday:%s%n",name,lastname,hiredDate,birthDate);
+    }
 }
