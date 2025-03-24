@@ -2,14 +2,25 @@ package Algorithms.Hafta11;
 
 public class Ornek1 {
     public static void main(String[] args) {
-        String str="Tayyip";
-        String ters="";
-        int uzunluk=str.length();
-        for (int i=uzunluk-1;0<=i;i--){
-            char c=str.charAt(i);
-            ters=ters.concat(Character.toString(c));
-            //ters=ters+str.charAt(i);
+        int tek_top=0, cift_top=0;
+        int sayi=1;
+
+        /*while(sayi<=90){
+            if(sayi%2==0)
+                cift_top+=sayi;
+            else
+                tek_top+=sayi;
+            sayi++;
+        }*/
+
+        for(sayi=1; sayi<=90; sayi++){
+            if(sayi%2==0)
+                cift_top+=sayi;
+            else
+                tek_top+=sayi;
         }
-        System.out.println(ters);
+
+        System.out.println("tek toplam=" + tek_top);
+        System.out.println("çit toplam=" + cift_top);
     }
 }
