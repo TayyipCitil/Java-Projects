@@ -1,3 +1,5 @@
+package NumericalAnalysis;
+
 import java.util.Scanner;
 //
 public class NewtonRaphsonHesap {
