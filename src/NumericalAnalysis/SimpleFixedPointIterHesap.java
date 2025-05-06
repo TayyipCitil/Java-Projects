@@ -28,7 +28,7 @@ public class SimpleFixedPointIterHesap {
             do {
                 xRootOld = xRoot;
                 try {
-                    xRoot = function(xRootOld);
+                    xRoot = function(xRootOld);// c_i+1=g(c_i)
                 } catch (ArithmeticException e) {
                     System.out.println(e.getMessage());
                     break;
@@ -49,6 +49,6 @@ public class SimpleFixedPointIterHesap {
         if(c==0){
             throw new ArithmeticException("c=0 olamaz");
         }
-        return (667.38/c)*(1-Math.exp(-0.146843*c))-40+c;
+        return (667.38/c)*(1-Math.exp(-0.146843*c))-40+c;//f(c)=0 dan elde ettiğimiz c=g(c)
     }
 }

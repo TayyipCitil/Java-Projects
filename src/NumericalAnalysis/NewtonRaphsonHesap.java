@@ -39,7 +39,7 @@ public class NewtonRaphsonHesap {
                 ea = Math.abs((xRoot - xRootOld) / xRoot) * 100;
                 System.out.printf("║%15d\t\t║%15.8f\t\t║%15.8f\t\t║%15.8f\t\t║%n", iter, xRootOld, xRoot, ea);
             }
-            if (ea < es || iter > iMax) {
+            if (ea < es || iter >= iMax) {
                 System.out.println("╚═══════════════════════╩═══════════════════════╩═══════════════════════╩═══════════════════════╝");
                 break;
             }
