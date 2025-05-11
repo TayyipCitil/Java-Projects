@@ -43,14 +43,18 @@ public class PolynomialDeflation {//derece düşürme,  örnek 6.9'daki fonksiyo
                 }
             }
 //
-            System.out.print("n_eps: ");
-            int n_eps = scanner.nextInt();
-            System.out.print("x_0: ");
-            double x_0 = scanner.nextDouble();
-            System.out.print("δx_0: ");
-            double smallDeltaX_0 = scanner.nextDouble();
-            System.out.print("iMax: ");
-            int iMax = scanner.nextInt();
+            int n_eps=0,iMax=0;
+            double x_0=0.0,smallDeltaX_0=0.0;
+            if (n>2){// n<=2 olduğunda bunlara gerek yok
+                System.out.print("n_eps: ");
+                n_eps = scanner.nextInt();
+                System.out.print("x_0: ");
+                x_0 = scanner.nextDouble();
+                System.out.print("δx_0: ");
+                smallDeltaX_0 = scanner.nextDouble();
+                System.out.print("iMax: ");
+                iMax = scanner.nextInt();
+            }
 //
             kokler = new double[n];//n.dereceden bir polinomun n tane kökü var
             if(n>=2){
