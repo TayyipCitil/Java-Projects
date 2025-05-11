@@ -2,7 +2,7 @@ package NumericalAnalysis;
 
 import java.util.Scanner;
 
-public class Odev02 {
+public class DiskriminantIleKokBul {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("f(x)=Ax^2+Bx+C , 2.dereceden denklemine uygun A,B ve C sayılarını gir.");

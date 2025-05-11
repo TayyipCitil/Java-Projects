@@ -27,6 +27,9 @@ public class ModifiedSecantHesap {//Düzeltilmiş Sekant Yöntem
                             "║         iter          ║          x_i          ║         δx_i          ║         x_i+1         ║         ea(%)         ║\n" +
                             "╠═══════════════════════╬═══════════════════════╬═══════════════════════╬═══════════════════════╬═══════════════════════╣");//║ ═ ╦ ╩ ╝ ╚ ╔ ╗ ╠ ╣ ╬
         do {
+            if (x_i == 0.0) {//eğer 0 olursa δx= infinity olur
+                x_i = 1e-5;//10^-5
+            }
             try {
                 nextX=x_i-((function(x_i)*smallDeltaX_i)/(function(x_i+smallDeltaX_i)-function(x_i)));
                 nextSmallDeltaX=nextX*(smallDeltaX_i/x_i);
