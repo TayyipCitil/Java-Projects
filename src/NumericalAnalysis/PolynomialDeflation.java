@@ -33,12 +33,12 @@ public class PolynomialDeflation {//derece düşürme,  örnek 6.9'daki fonksiyo
             for (int i = kokler.length - 1; 0 <= i; i--) {//2 <=i çünkü son 2 kökü diskriminant ile bulucaz
                 if (i >= 2) {
                     kokler[i] = yuvarla(modifiedSecantMothod(diziA, x_0, smallDeltaX_0, iMax, n_eps), 2);
-                    dereceDusurme(diziA, kokler[i]);
+                    dereceDusurme(kokler[i]);//Not: diziA static olduğu için parametre olarak almaya gerek yok
                 } else {
                     diskriminantIleKokBul(diziA[2], diziA[1], diziA[0]);
                 }
             }
-            printRoots(kokler);
+            printRoots();
 //
             System.out.print("Tekrar denemek ister misiniz(e/h)? ");
             scanner.nextLine();
@@ -46,20 +46,21 @@ public class PolynomialDeflation {//derece düşürme,  örnek 6.9'daki fonksiyo
             if (!secim.equals("e")) {
                 break;
             }
+            isImejiner=false;//diğer static olanlar yeniden deniyince döngü içinde güncelleniyor ama bu güncellenmiyordu o yüzden eklendi
         }
     }
 //
-    public static void dereceDusurme(double[] diziA, double t) {// t: bildiğimiz kök
+    public static void dereceDusurme(double t) {// t: bildiğimiz kök,  Not: diziA static olduğu için parametre olarak almaya gerek yok
         double[] diziB = new double[n + 1];//n.dereceden bir polinomun n+1 tane terimi var
         diziB[n] = 0;
         diziB[n - 1] = diziA[n];
         for (int i = n; i >= 2; i--) {
             diziB[i - 2] = diziA[i - 1] + diziB[i - 1] * t;
         }
-        //diziA = Arrays.copyOf(diziB, diziB.length);//Eğer böyle yaparsak parametre olan diziA artık diziB'yi referans gösteriri ama asıl diziA'da bir değişiklik olmaz
-        for (int i = n; i >= 0; i--) {//Parametre olan diziA, orjinal diziA yı referans gösterir ve diziA'da bir değişiklik olur
+        diziA = Arrays.copyOf(diziB, diziB.length);//(parametre olan diziA yı kaldırdık)Eğer böyle yaparsak parametre olan diziA artık diziB'yi referans gösteriri ama asıl diziA'da bir değişiklik olmaz
+        /*for (int i = n; i >= 0; i--) {//Parametre olan diziA, orjinal diziA yı referans gösterir ve diziA'da bir değişiklik olur
             diziA[i] = diziB[i];
-        }
+        }*/
         n--;
     }
 //
@@ -118,7 +119,7 @@ public class PolynomialDeflation {//derece düşürme,  örnek 6.9'daki fonksiyo
         return Math.round(sayi * kat) / kat;
     }
 //
-    public static void printRoots(double[] kokler) {//her şey tamam ama kökleri yazdıramıyon
+    public static void printRoots() {//kokler static olduğu için parametre olarak almaya gerek yok
         System.out.print("Kökler = { ");
         double[] koklerSirali;
         double reelKisim = 0, imejinerKisim = 0;
