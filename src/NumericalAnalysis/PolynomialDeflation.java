@@ -1,6 +1,7 @@
 package NumericalAnalysis;
 //
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 //
 public class PolynomialDeflation {//derece düşürme,  örnek 6.9'daki fonksiyonu kullanabilirsin x^3-5x^2+7x-3
@@ -11,13 +12,35 @@ public class PolynomialDeflation {//derece düşürme,  örnek 6.9'daki fonksiyo
     public static void main(String[] args) {
         while (true) {
             Scanner scanner = new Scanner(System.in);
-            System.out.print("derece(n): ");
-            n = scanner.nextInt();
+            try {//n tamsayı olmak zorunda
+                System.out.print("derece(n): ");
+                n = scanner.nextInt();
+            }catch (InputMismatchException e){
+                System.out.println("Bu bir polinom değil.Polinomların dereceleri doğal sayılardır(0,1,2,...)");
+                continue;
+            }
+            if (n<0){
+                System.out.println("Bu bir polinom değil.Polinomların dereceleri doğal sayılardır(0,1,2,...)");
+                continue;
+            }
             diziA = new double[n + 1];//n.dereceden bir polinomun n+1 tane terimi var
             for (int i = n; i >= 0; i--) {
-                System.out.print(i + ". katsayı: ");
-                double katsayi = scanner.nextDouble();
-                diziA[i] = katsayi;
+                if(i==n && i!=0){//başkatsayı 0 olamaz yoksa polinomun derecesi düşer (ama 0 dereceden bir polinom ise olabilir)
+                    do {
+                        System.out.print(i + ". katsayı: ");
+                        double katsayi = scanner.nextDouble();
+                        if(katsayi==0.0){
+                            System.out.println("Baş katsayı 0 olamaz (çünkü polinom n. değil n-1.dereceden olur.)");
+                        }else {
+                            diziA[i] = katsayi;// x üstü ile katsayısının indisi aynı
+                            break;
+                        }
+                    }while (true);
+                }else {
+                    System.out.print(i + ". katsayı: ");
+                    double katsayi = scanner.nextDouble();
+                    diziA[i] = katsayi;// x üstü ile katsayısının indisi aynı
+                }
             }
 //
             System.out.print("n_eps: ");
@@ -30,15 +53,26 @@ public class PolynomialDeflation {//derece düşürme,  örnek 6.9'daki fonksiyo
             int iMax = scanner.nextInt();
 //
             kokler = new double[n];//n.dereceden bir polinomun n tane kökü var
-            for (int i = kokler.length - 1; 0 <= i; i--) {//2 <=i çünkü son 2 kökü diskriminant ile bulucaz
-                if (i >= 2) {
-                    kokler[i] = yuvarla(modifiedSecantMothod(diziA, x_0, smallDeltaX_0, iMax, n_eps), 2);
-                    dereceDusurme(kokler[i]);//Not: diziA static olduğu için parametre olarak almaya gerek yok
-                } else {
-                    diskriminantIleKokBul(diziA[2], diziA[1], diziA[0]);
+            if(n>=2){
+                for (int i = kokler.length - 1; 0 <= i; i--) {
+                    if (i >= 2) {// 2 <= i çünkü son 2 kökü diskriminant ile bulucaz
+                        kokler[i] = yuvarla(modifiedSecantMothod(diziA, x_0, smallDeltaX_0, iMax, n_eps), 2);
+                        dereceDusurme(kokler[i]);//Not: diziA static olduğu için parametre olarak almaya gerek yok
+                    } else {
+                        diskriminantIleKokBul(diziA[2], diziA[1], diziA[0]);
+                    }
+                }
+                printRoots();
+            } else if (n==1) {
+                kokler[0]=(-diziA[0])/diziA[1];
+                printRoots();
+            }else{// n=0  sabit polinom
+                if(diziA[0]==0){
+                    System.out.println("Kökler = {  R  }");
+                }else {
+                    System.out.println("Kökler = { }");
                 }
             }
-            printRoots();
 //
             System.out.print("Tekrar denemek ister misiniz(e/h)? ");
             scanner.nextLine();
@@ -120,7 +154,7 @@ public class PolynomialDeflation {//derece düşürme,  örnek 6.9'daki fonksiyo
     }
 //
     public static void printRoots() {//kokler static olduğu için parametre olarak almaya gerek yok
-        System.out.print("Kökler = { ");
+        System.out.print("Kökler = {  ");
         double[] koklerSirali;
         double reelKisim = 0, imejinerKisim = 0;
         if (isImejiner) {
@@ -156,7 +190,7 @@ public class PolynomialDeflation {//derece düşürme,  örnek 6.9'daki fonksiyo
             imejinerKisim = Math.abs(imejinerKisim);
             System.out.print(reelKisim + "+" + imejinerKisim + "i, " + reelKisim + "-" + imejinerKisim + "i  ");
         }
-        System.out.print("\b\b }\n");
+        System.out.print("\b\b  }\n");
     }
 //
 }
