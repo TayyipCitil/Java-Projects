@@ -96,7 +96,7 @@ public class PolynomialDeflation {//derece düşürme,  örnek 6.9'daki fonksiyo
             diziB[i - 2] = diziA[i - 1] + diziB[i - 1] * t;
         }
         diziA = Arrays.copyOf(diziB, diziB.length);//(parametre olan diziA yı kaldırdık)Eğer böyle yaparsak parametre olan diziA artık diziB'yi referans gösteriri ama asıl diziA'da bir değişiklik olmaz
-        /*for (int i = n; i >= 0; i--) {//Parametre olan diziA, orjinal diziA yı referans gösterir ve diziA'da bir değişiklik olur
+        /*for (int i = n; i >= 0; i--) {Parametre olan diziA, orjinal diziA yı referans gösterir ve diziA'da bir değişiklik olur
            diziA[i] = diziB[i];
         }*/
         n--;
