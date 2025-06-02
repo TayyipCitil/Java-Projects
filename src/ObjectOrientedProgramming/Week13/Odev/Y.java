@@ -5,4 +5,5 @@ public interface Y {
     default void b(){}
     private void c(){};
     static void d(){}
+
 }

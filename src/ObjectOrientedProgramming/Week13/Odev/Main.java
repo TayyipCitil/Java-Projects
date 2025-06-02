@@ -9,5 +9,6 @@ public class Main {
         X.d();
         Y.d();
         //z.d();
+        //X.i=232;
     }
 }

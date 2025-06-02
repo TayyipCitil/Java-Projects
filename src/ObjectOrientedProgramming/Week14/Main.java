@@ -10,6 +10,7 @@ public class Main {
         StringBuilder sb=new StringBuilder();
         sb.append(orjinal);
 
+
         for (int i = 0; i < sb.length(); i++) {
             char c=sb.charAt(i);
             if(Character.isUpperCase(c)){
@@ -30,7 +31,7 @@ public class Main {
         for (int i = 0; i < harfTekrar.length; i++) {
             if(harfTekrar[i]>enCok){
                 enCok=harfTekrar[i];
-                enCokHarf=(char)('a'+i);
+                enCokHarf=(char)(i+'a');
             }
         }
         System.out.println("en çok tekrar eden harf: "+ enCokHarf);

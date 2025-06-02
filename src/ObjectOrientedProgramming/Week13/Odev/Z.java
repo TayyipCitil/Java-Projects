@@ -10,4 +10,11 @@ public class Z extends W implements X,Y{
     @Override
     public void b() {
     }
+    void c(){
+        System.out.println(i);
+    }
+
+    {
+        System.out.println(123);
+    }
 }

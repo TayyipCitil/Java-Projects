@@ -46,10 +46,14 @@ public class NewtonRaphsonHesap {
         } while (true);
     }
 //
-    public static double function(double c){
+    public static double function2(double c){//paraşütçü problermi
         if(c==0){
             throw new ArithmeticException("c=0 olamaz");
         }
         return (667.38/c)*(1-Math.exp(-0.146843*c))-40;
+    }
+    public static double function(double v){//Kitapta örnek 8.3
+        double p=10,n=1,R=0.082054,T=300,a=3.592,b=0.04267;
+        return (p+a/(v*v))*(v-b)-R*T;
     }
 }
