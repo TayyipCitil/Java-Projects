@@ -15,7 +15,7 @@ public class MullerHesap {
     }
 
     public static void mullerMethods( double x0, double x1, double x2) {
-        double f0, f1, f2, h0, h1, d0, d1, a, b, c, diskriminant, x3 = 0;
+        double f0, f1, f2, h0, h1, d0, d1, a, b, c, diskriminant, x3;
         double es = 0.5 * Math.pow(10, 2 - 6), ea;
         int iter = 0, iMax = 50;
         System.out.println( "╔════╦══════╦══════╦══════╦══════╦══════╗\n" +//buradaki "i"ler initial değil iterasyon anlamında
