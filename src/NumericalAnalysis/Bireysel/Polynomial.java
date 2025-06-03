@@ -117,4 +117,3 @@ class Complex {//mulleri complex kokleri de bulacak şekilde düzenleyince kulla
         return String.format("%.6f%.6fi", re, im);
     }
 }
-

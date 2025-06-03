@@ -59,5 +59,3 @@ public class MullerHesap {
         return Math.pow(x, 3) - 13 * x - 12;
     }
 }
-
-
