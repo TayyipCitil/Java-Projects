@@ -1,4 +1,4 @@
-package NumericalAnalysis.KullanisliMetodlar;
+package NumericalAnalysis.Bireysel;
 
 public class Yuvarlama {
     public static void main(String[] args) {

@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class PolynomialDivision {
     public static void main(String[] args) {
-        double[] a={5,-1,3,2};//n=3 not=katsayıların büyük dereceliden sabit terime doğru yaz
-        double[] d={-2,1};//m=1
+        double[] a={5,-1,3,0,0,0,10};//n=3 not=katsayıların büyük dereceliden sabit terime doğru yaz
+        double[] d={-2,0,1};//m=1
         polynomialDivision(a,d);
     }
     public static void polynomialDivision(double[] a,double[] d){
