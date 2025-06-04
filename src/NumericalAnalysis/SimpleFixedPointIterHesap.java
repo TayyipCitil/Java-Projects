@@ -28,7 +28,7 @@ public class SimpleFixedPointIterHesap {
             do {
                 xRootOld = xRoot;
                 try {
-                    xRoot = function(xRootOld);// c_i+1=g(c_i)
+                    xRoot = functionG(xRootOld);// c_i+1=g(c_i)
                 } catch (ArithmeticException e) {
                     System.out.println(e.getMessage());
                     break;
@@ -45,7 +45,7 @@ public class SimpleFixedPointIterHesap {
             } while (true);
     }
 //
-    public static double function(double c){
+    public static double functionG(double c){ // xᵢ₊₁ = g(xᵢ)
         if(c==0){
             throw new ArithmeticException("c=0 olamaz");
         }
