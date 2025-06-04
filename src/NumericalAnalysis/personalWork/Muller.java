@@ -53,6 +53,7 @@ public class Muller {
         System.out.println("╚════╩══════╩══════╩══════╩══════╩══════╝");
     }
 
+    //kitapta örnek 7.2 , f(x)=(x^3)-13x-12 ve kökler {-3,-1,4}
     public static double function(double x) {
         return Math.pow(x, 3) - 13 * x - 12;
     }
