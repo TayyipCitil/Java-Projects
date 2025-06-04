@@ -12,7 +12,7 @@ public class ModifiedSecantHesap {//Düzeltilmiş Sekant Yöntem
             double smallDeltaX_0 = scanner.nextDouble();
             System.out.print("iMax: ");
             int iMax = scanner.nextInt();
-            modifiedSecantMothod(x_0,smallDeltaX_0, iMax);
+            modifiedSecantMethod(x_0,smallDeltaX_0, iMax);
             System.out.print("Tekrar denemek ister misiniz(e/h)? ");
             scanner.nextLine();
             String secim = scanner.nextLine();
@@ -20,7 +20,7 @@ public class ModifiedSecantHesap {//Düzeltilmiş Sekant Yöntem
         }
     }
 //
-    public static void modifiedSecantMothod(double x_i,double smallDeltaX_i,int iMax){// δ=smallDelta
+    public static void modifiedSecantMethod(double x_i, double smallDeltaX_i, int iMax){// δ=smallDelta
         int iter=0;
         double ea=0,es=0.5 * Math.pow(10, 2 - 6),nextX,nextSmallDeltaX; // nextX = x_i+1 , nextSmallDeltaX = smallDeltaX_i+1
         System.out.println( "╔═══════════════════════╦═══════════════════════╦═══════════════════════╦═══════════════════════╦═══════════════════════╗\n" +//buradaki "i"ler initial değil iterasyon anlamında

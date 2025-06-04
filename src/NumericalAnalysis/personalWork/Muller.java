@@ -1,6 +1,6 @@
-package NumericalAnalysis.Bireysel;
+package NumericalAnalysis.personalWork;
 
-public class MullerHesap {
+public class Muller {
     /*Muller ile derece düşürmeyi birleştirip genel bir kok bulma kodu yazıcam ama şimdilik sadece tek bir rrel kok bulan muller
     ama belkide bunu ayrı bir sınıfta yapmalıyım yani elimde bir tane sade Muller sınıfı bir de MullerAndDeflation.
     MullerAndDeflation aynı zamanda complex kokler için de özelleştirilmeli
@@ -9,17 +9,15 @@ public class MullerHesap {
      */
 
     public static void main(String[] args) {
-        double x0 = 4.5, x1 = 5.5, x2 = 5;
-        mullerMethods(x0, x1, x2);
-
+        mullerMethod(4.5, 5.5, 5);
     }
 
-    public static void mullerMethods( double x0, double x1, double x2) {
-        double f0, f1, f2, h0, h1, d0, d1, a, b, c, diskriminant, x3;
+    public static void mullerMethod(double x0, double x1, double x2) {
         double es = 0.5 * Math.pow(10, 2 - 6), ea;
         int iter = 0, iMax = 50;
+        double f0, f1, f2, h0, h1, d0, d1, a, b, c, diskriminant, x3;
         System.out.println( "╔════╦══════╦══════╦══════╦══════╦══════╗\n" +//buradaki "i"ler initial değil iterasyon anlamında
-                            "║iter║  x0  ║  x1  ║  x2  ║  x3  ║ ea(%)║\n" +
+                            "║iter║  x₀  ║  x₁  ║  x₂  ║  x₃  ║ εₐ(%)║\n" +
                             "╠════╬══════╬══════╬══════╬══════╬══════╣");//║ ═ ╦ ╩ ╝ ╚ ╔ ╗ ╠ ╣ ╬
         do {
             f0 = function(x0);
@@ -51,7 +49,7 @@ public class MullerHesap {
             x0 = x1;
             x1 = x2;
             x2 = x3;
-        } while (ea > es || iter > iMax);
+        } while (ea > es && iter < iMax);
         System.out.println("╚════╩══════╩══════╩══════╩══════╩══════╝");
     }
 

@@ -1,4 +1,4 @@
-package NumericalAnalysis.Bireysel;
+package NumericalAnalysis.personalWork;
 
 import java.util.Arrays;
 import java.util.InputMismatchException;
@@ -23,7 +23,6 @@ public class Polynomial {
             }
             break;
         }while(true);
-
         coefficients = new double[n + 1];//n.dereceden bir polinomun n+1 tane terimi var
         for (int i = n; i >= 0; i--) {
             if (i == n && i != 0) {//başkatsayı 0 olamaz yoksa polinomun derecesi düşer (ama 0 dereceden bir polinom ise olabilir)
@@ -52,6 +51,26 @@ public class Polynomial {
         }
         return f;
     }
+
+    public static void polynomialDivision(double[] a,double[] d){
+        int n=a.length-1;
+        int m=d.length-1;
+        int qDegree=n-m;
+        double[] q=new double[qDegree+1];
+        for(int i=qDegree;i>=0;i--){
+            q[i]=a[n]/d[m];
+            for(int j=0;j<=m;j++){
+                a[n-j]=a[n-j]-q[i]*d[m-j];
+            }
+            n--;
+        }
+        double[] r=Arrays.copyOfRange(a,0,m);
+        System.out.print("q= ");
+        polynomialToString(q);
+        System.out.print("r= ");
+        polynomialToString(r);
+    }
+
     public static double[] polynomialDeflation(double[] coefficients, double t) {// t: bildiğimiz kök
         int n = coefficients.length - 1;
         double temp1 = coefficients[n];
@@ -86,34 +105,5 @@ public class Polynomial {
             }
         }
     }
-}
-class Complex {//mulleri complex kokleri de bulacak şekilde düzenleyince kullanıcam
-    public double re;
-    public double im;
 
-    public Complex(double re, double im) {
-        this.re = re;
-        this.im = im;
-    }
-
-    public Complex add(Complex z) {
-        return new Complex(this.re + z.re, this.im + z.im);
-    }
-
-    public Complex sub(Complex z) {
-        return new Complex(this.re - z.re, this.im - z.im);
-    }
-
-    public Complex mul(Complex z) {
-        return new Complex(this.re * z.re - this.im * z.im, this.re * z.im + this.im * z.re);
-    }
-
-    public Complex div(Complex z) {
-        double denom = z.re * z.re + z.im * z.im;
-        return new Complex((this.re + z.re + this.im * z.im) / denom, (this.im * z.re - this.re * z.im) / denom);
-    }
-
-    public String toString() {
-        return String.format("%.6f%.6fi", re, im);
-    }
 }
