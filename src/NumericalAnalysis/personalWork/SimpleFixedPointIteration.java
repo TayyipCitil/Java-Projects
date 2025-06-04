@@ -2,9 +2,10 @@ package NumericalAnalysis.personalWork;
 
 public class SimpleFixedPointIteration {
     public static void main(String[] args) {
-        simpleFixedPointIter(0.55);
+        simpleFixedPointIteration(0.55);
     }
-    public static void simpleFixedPointIter(double x0){
+
+    public static void simpleFixedPointIteration(double x0){
         double es = 0.5 * Math.pow(10, 2 - 6), ea;
         int iter = 0, iMax = 50;
         double x1;//x₁
