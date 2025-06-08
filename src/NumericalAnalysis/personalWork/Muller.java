@@ -15,7 +15,7 @@ public class Muller {
     public static void mullerMethod(double x0, double x1, double x2) {
         double es = 0.5 * Math.pow(10, 2 - 6), ea;
         int iter = 0, iMax = 50;
-        double f0, f1, f2, h0, h1, d0, d1, a, b, c, diskriminant, x3;
+        double f0, f1, f2, h0, h1, d0, d1, a, b, c, diskriminant, x3;//d0=δx₀ ve d1=δx₁
         System.out.println( "╔════╦══════╦══════╦══════╦══════╦══════╗\n" +//buradaki "i"ler initial değil iterasyon anlamında
                             "║iter║  x₀  ║  x₁  ║  x₂  ║  x₃  ║ εₐ(%)║\n" +
                             "╠════╬══════╬══════╬══════╬══════╬══════╣");//║ ═ ╦ ╩ ╝ ╚ ╔ ╗ ╠ ╣ ╬

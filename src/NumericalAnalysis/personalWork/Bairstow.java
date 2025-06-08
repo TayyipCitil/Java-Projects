@@ -11,7 +11,7 @@ public class Bairstow {
         double es = 0.5 * Math.pow(10, 2 - 6), ea_s = 0, ea_r = 0;
         int iter = 0, iMax = 50;
         int n = coefficients.length - 1;
-        double dr, ds;
+        double dr, ds;//Δr ve Δs
         double[] b = new double[n + 1], c = new double[n + 1];
         double[][] tempRoots,roots = new double[2][n];// 0.satır reel kısım, 1.satır imejiner kısım için
 
