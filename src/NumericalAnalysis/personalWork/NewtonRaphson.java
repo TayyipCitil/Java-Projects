@@ -15,7 +15,7 @@ public class NewtonRaphson {
         do {
             x1 = x0 - (function(x0) / dFunction(x0));
             ea = Math.abs((x1 - x0) / x1) * 100;
-            System.out.printf("║%-4d║%-6.2f║%-6.2f║%-6.2f║%n", iter, x0, x1, ea);
+            System.out.printf("║%-4d║%-6.3f║%-6.3f║%-6.2f║%n", iter, x0, x1, ea);
             x0 = x1;
             iter++;
         } while (ea > es && iter < iMax);

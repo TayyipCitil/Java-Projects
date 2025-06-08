@@ -1,4 +1,4 @@
-package NumericalAnalysis;
+package NumericalAnalysis.homeWork;
 
 public class SonsuzSeriEUstuX {
     public static void main(String[] args) {

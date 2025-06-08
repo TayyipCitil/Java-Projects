@@ -1,4 +1,4 @@
-package NumericalAnalysis;
+package NumericalAnalysis.homeWork;
 
 import java.util.Scanner;
 
